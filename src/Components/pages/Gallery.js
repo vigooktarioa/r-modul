@@ -38,6 +38,16 @@ class Gallery extends Component {
     render() {
         return (
             <div className="container">
+                <div className="container">
+                    <h4 className="text-info my-2">
+                        Nama Pengguna: {this.state.user}
+                    </h4>
+                    <input type="text" className="form-control my-2" placeholder="Pencarian"
+                        value={this.state.keyword}
+                        onChange={ev => this.setState({ keyword: ev.target.value })}
+                        onKeyUp={ev => this.searching(ev)}
+                    />
+                </div>
                 <div className="row">
                     {this.state.buku.map((item, index) => (
                         <Card
@@ -108,7 +118,13 @@ class Gallery extends Component {
                 </div>
             </div>
         )
+        
     }
+
+    componentDidMount() {
+        this.setUser()
+    }
+
 
     Add = () => {
         // menampilkan komponen modal
@@ -185,6 +201,33 @@ class Gallery extends Component {
             this.setState({ buku: tempBuku })
         }
     }
+
+    setUser = () => {
+        // cek eksistensi dari session storage
+        if (sessionStorage.getItem("user") === null) {
+            // kondisi jika session storage "user" belum dibuat
+            let prompt = window.prompt("Masukkan Nama Anda", "")
+            if (prompt === null || prompt === "") {
+                // jika user tidak mengisikan namanya
+                this.setUser()
+            } else {
+                // jika user telah mengisikan namanya
+
+                // simpan nama user ke session storage
+                sessionStorage.setItem("user", prompt)
+
+                // simpan nama user ke state.user
+                this.setState({ user: prompt })
+            }
+        } else {
+            // kondisi saat session storage "user" telah dibuat
+
+            // akses nilai dari session storage "user"
+            let name = sessionStorage.getItem("user")
+            this.setState({ user: name })
+        }
+    }
+
 
 }
 export default Gallery; 

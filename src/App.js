@@ -14,7 +14,7 @@ class App extends React.Component{
       <Link to="/list" className="nav-link">List</Link>
       <Link to="/gallery" className="nav-link">Gallery</Link> */}
 
-        <Navbar bg="light " expand="lg">
+        <Navbar bg="light" expand="lg">
           <Container>
             <Navbar.Brand to="/">React-Bootstrap</Navbar.Brand>
             <Navbar.Toggle aria-controls="basic-navbar-nav" />
