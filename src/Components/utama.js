@@ -7,6 +7,7 @@ import Karya from './karya';
 import Kontak from './kontak';
 import List from './list'
 import Gallery from './pages/Gallery';
+import Cart from './pages/Cart';
 
 const Utama = () => (
     <Routes>
@@ -16,6 +17,7 @@ const Utama = () => (
         <Route path="/kontak" element={<Kontak/>}/>
         <Route path="/list" element={<List/>}/>
         <Route path="/gallery" element={<Gallery/>}/>
+        <Route path="/cart" element={<Cart/>}/>
     </Routes>
 )
 
