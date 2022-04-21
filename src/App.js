@@ -26,6 +26,7 @@ class App extends React.Component{
                 <Link to="/list" className="nav-link">List</Link>
                 <Link to="/gallery" className="nav-link">Gallery</Link>
                 <Link to="/cart" className="nav-link">Cart</Link>
+                <Link to="/pegawai" className="nav-link">Pegawai</Link>
               </Nav>
             </Navbar.Collapse>
           </Container>
