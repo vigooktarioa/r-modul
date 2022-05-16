@@ -224,4 +224,4 @@ class Pegawai extends Component {
         );
     }
 }
-export default Pegawai;
+export default Pegawai; 
